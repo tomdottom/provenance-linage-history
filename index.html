@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							I give no warranties to anything in these slides.
+							<img src="./images/brain-dump.jpg" style="height: 12em;">
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Intro
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							### Some concepts to keep in mind
+
+							| | |
+							| ------------- | ------------- |
+							| History    | A record. |
+							| Lineage    | Line of descent from an ancestor. |
+							| Provenance | Place or source of origin. |
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							Every human and/or automated process should
+							concerned with:
+
+							- Recording the history of each change to our code
+							base and data sources
+							- Recoding the lineage of every each asset we
+							produce
+							- Making it easy to trace the provenance of our
+							assets
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							Behave like:
+
+							- You may have to recreate all assets from scratch; or
+							- You may get auditted at any second
+							    - by clients
+							    - by you future self/co-worker
+							    - by your boss
+							    - by the government
+
+						</textarea>
+					</section>
+				</section>
+				<section data-background="#594F4F">
+					<section data-markdown>
+						<textarea data-template>
+							## Why History?
+						</textarea>
+
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							We often want to look back at work as it was at a
+							specific point in time.
+
+							The more messages/metadata we associate with each
+							small unit of work the easier it will be to
+							understand in the future.
+						</textarea>
+
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							Will I really need to look back in time?
+
+							YES! <!-- .element: class="fragment" data-fragment-index="1" -->
+
+							Notes and metadata will help when trying to: <!-- .element: class="fragment" data-fragment-index="2" -->
+
+							- understand complicated or abstrusely written code.  <!-- .element: class="fragment" data-fragment-index="2" -->
+							- the intention of code, even when it may actually be broken.<!-- .element: class="fragment" data-fragment-index="3" -->
+							- ... <!-- .element: class="fragment" data-fragment-index="4" -->
+
+						</script>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							#### How git helps?
+
+							Every _commit_ to the git repo can have a short
+							message and a long description associated with it.
+
+							Think of them as notes to you future self or
+							future co-workers.
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							This happens more often than I'd like to admit
+
+							<img src="./images/git-blame2.jpg" style="height: 12em;">
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							For example:
+
+							A comment by a project a collaborator:
+
+							_*This looks cool as hell; could you add a comment
+							explaining what this is doing?*_
+
+							Caused me to rework the code and commit it with:
+
+							<pre><code class="shell">
+							commit abc2d8532489b173e0428feae40cf0f11dbf7cad
+							Author: Tom Marks
+							Date:   Sat May 26 07:13:53 2018 -0400
+
+								Attempts to make clever code more readable
+
+							</code></pre>
+						</textarea>
+
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							It's not a great commit message.
+
+							But hopefully contains the motivation for the
+							code changes.
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							Linus Torvald, the creator of git, has much higher
+							standards for a git commit message:
+
+							<pre><code class="shell" style="font-size: 50%; line-height: 150%;">
+							A good commit message looks like this:
+
+								Header line: explaining the commit in one line
+
+								Body of commit message is a few lines of text, explaining things
+								in more detail, possibly giving some background about the issue
+								being fixed, etc etc.
+
+								The body of the commit message can be several paragraphs, and
+								please do proper word-wrap and keep columns shorter than about
+								74 characters or so. That way "git log" will show things
+								nicely even when it's indented.
+
+								Reported-by: whoever-reported-it
+								Signed-off-by: Your Name <youremail@yourhost.com>
+
+							where that header line really should be meaningful, and really should be
+							just one line.  That header line is what is shown by tools like gitk and
+							shortlog, and should summarize the change in one readable line of text,
+							independently of the longer explanation.
+
+							</code></pre>
+
+						</textarea>
+					</section>
+				</section>
+				<section data-background="#547980">
+					<section data-markdown>
+						<textarea data-template>
+
+							## Why Lineage?
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Producing any useful asset often requires using multiple code bases, complex infrastructure,
+							and numerous data sources.
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							If, in the future, we want to have any hope of explaining how
+							the asset was produced we will want to record as much of this as possible
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Just think about all the inputs that are brought together to produce a ML model.
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							<img src="./images/history-lineage-provenance.svg" style="height: 12em;">
+
+						</textarea>
+					</section>
+				</section>
+				<section data-background="#45ADA8">
+					<section data-markdown>
+						<textarea data-template>
+
+							### Why Provenance?
+						</textarea>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							We don't know when or why we might need to trace the origins of an asset
+							be it code in production or a model & the training data which made a prediction.
+
+							The only thing we can be sure is that one day someone will ask us. <!-- .element: class="fragment" data-fragment-index="1" -->
+
+							So the best advice is <!-- .element: class="fragment" data-fragment-index="2" -->
+						</script>
+					</section>
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+					<section data-background-image="./images/be-prepared.png"
+							data-background-color="rgba(193, 0, 0, 1)"
+							data-background-size="contain">
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							- Record everything
+							- Add copious amouts of notes and metadata
+								- commit messages
+								- clear filename filepath conventions
+								- output messages/notifications from automated
+								processes and record these in a log
+							- Make it easy to search and trace
+								- canonical store should NOT be someones P.C.
+								- the fewer sources the easier it is to search
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
