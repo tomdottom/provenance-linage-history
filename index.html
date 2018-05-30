@@ -24,7 +24,8 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#594F4F">
 					<section data-markdown>
 						<textarea data-template>
 							I give no warranties to anything in these slides.
@@ -32,7 +33,8 @@
 						</textarea>
 					</section>
 				</section>
-				<section>
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#547980">
 					<section data-markdown>
 						<textarea data-template>
 							### Intro
@@ -46,6 +48,7 @@
 							| ------------- | ------------- |
 							| History    | A record. |
 							| Lineage    | Line of descent from an ancestor. |
+							| Succession | The coming of one person or thing after another in order, sequence, or in the course of events. |
 							| Provenance | Place or source of origin. |
 
 						</textarea>
@@ -78,12 +81,14 @@
 						</textarea>
 					</section>
 				</section>
-				<section data-background="#594F4F">
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#45ADA8">
 					<section data-markdown>
 						<textarea data-template>
-							## Why History?
-						</textarea>
 
+							## History
+
+						</textarea>
 					</section>
 					<section data-markdown>
 						<textarea data-template>
@@ -94,6 +99,7 @@
 							The more messages/metadata we associate with each
 							small unit of work the easier it will be to
 							understand in the future.
+
 						</textarea>
 
 					</section>
@@ -168,6 +174,7 @@
 					</section>
 					<section data-markdown>
 						<textarea data-template>
+
 							Linus Torvald, the creator of git, has much higher
 							standards for a git commit message:
 
@@ -198,11 +205,13 @@
 						</textarea>
 					</section>
 				</section>
-				<section data-background="#547980">
+
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#9DE0AD">
 					<section data-markdown>
 						<textarea data-template>
 
-							## Why Lineage?
+							## Lineage
 
 						</textarea>
 					</section>
@@ -237,11 +246,47 @@
 						</textarea>
 					</section>
 				</section>
-				<section data-background="#45ADA8">
+
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#E5FCC2">
 					<section data-markdown>
 						<textarea data-template>
 
-							### Why Provenance?
+							## Succession
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Q: Isn't this part of lineage? <!-- .element: class="fragment" data-fragment-index="1" -->
+
+							A: Yes but it's the direction that's important to take note of. <!-- .element: class="fragment" data-fragment-index="2" -->
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Succession take the point of view of the parent and that the parent knows its children.
+
+							IMHO we developers tend to be good at succession.
+							  - Programs and processes will know what it produce; and <!-- .element: class="fragment" data-fragment-index="1" -->
+							  - the may sometimes even record it for their own use; but <!-- .element: class="fragment" data-fragment-index="2" -->
+							  - children produced by these processes don't alway know where they came from :( <!-- .element: class="fragment" data-fragment-index="3" -->
+
+						</textarea>
+					</section>
+				</section>
+
+
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#594F4F">
+					<section data-markdown>
+						<textarea data-template>
+
+							## Provenance
+
 						</textarea>
 					</section>
 					<section data-markdown>
@@ -254,7 +299,6 @@
 							So the best advice is <!-- .element: class="fragment" data-fragment-index="2" -->
 						</script>
 					</section>
-				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
 					<section data-background-image="./images/be-prepared.png"
 							data-background-color="rgba(193, 0, 0, 1)"
 							data-background-size="contain">
@@ -271,6 +315,69 @@
 								- canonical store should NOT be someones P.C.
 								- the fewer sources the easier it is to search
 						</script>
+					</section>
+				</section>
+
+				<!-- #594F4F,#547980,#45ADA8,#9DE0AD,#E5FCC2,#594F4F,#547980,#45ADA8 -->
+				<section data-background="#594F4F">
+					<section data-markdown>
+						<textarea data-template>
+
+							## Comparing all three
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Simple pipeline
+
+							<pre style="text-align: center;"><code class="shell">
+							(a) ──── (b) ──── (c) ──── (d)
+							───────── Succession ────────>
+							<──────── Provenance ─────────
+							<───────── Lineage ──────────>
+
+							</code></pre>
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Multiple input assets fan-in to produce a single output asset
+
+							<pre style="text-align: center;"><code class="shell">
+ 									 (b1) ─┐
+							(a1) ─┬─ (b2) ─┴─  (c1) ───  (d1)
+							(a2) ─┤
+							(a3) ─┘
+							───────── Succession ────────>
+							<──────── Provenance ─────────
+							<───────── Lineage ──────────>
+
+							</code></pre>
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+
+							Multiple input assets fan-in to produce a multiple output asset
+
+							<pre style="text-align: center;"><code class="shell">
+							(x1) ─── (b3) ─┬─  (y1) ───  (z1)
+									 (b1) ─┤
+							(a1) ─┬─ (b2) ─┴─  (c1) ───  (d1)
+							(a2) ─┤
+							(a3) ─┘
+							───────── Succession ────────>
+							<──────── Provenance ─────────
+							<───────── Lineage ──────────>
+
+							</code></pre>
+
+						</textarea>
 					</section>
 				</section>
 			</div>

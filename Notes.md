@@ -8,6 +8,9 @@
 
 # TODO
 
+- Change Lineage to Succession
+- Decide between Lineage and Provenance
+
 - emphises the direction of traversal
 -- forward => lineage
 -- backward => provenance
@@ -28,12 +31,12 @@
 --- often looking up actions in a db from proir process groups
 
 # Use more charts
-
 Simple pipeline
 
 (a) ──── (b) ──── (c) ──── (d)
-───────── Lineage ───────────>
+───────── Succession ────────>
 <──────── Provenance ─────────
+<───────── Lineage ──────────>
 
 
 Multiple input assets fan-in to produce a single output asset
@@ -41,18 +44,20 @@ Multiple input assets fan-in to produce a single output asset
 (a1) ─┬─ (b2) ─┴─  (c1) ───  (d1)
 (a2) ─┤
 (a3) ─┘
-────────── Lineage ────────────>
-<───────── Provenance ──────────
+───────── Succession ────────>
+<──────── Provenance ─────────
+<───────── Lineage ──────────>
 
 
 Multiple input assets fan-in to produce a multiple output asset
-(x1) ─┬─ (b3) ─┬─  (c1) ───  (z1)
+(x1) ─── (b3) ─┬─  (y1) ───  (z1)
          (b1) ─┤
 (a1) ─┬─ (b2) ─┴─  (c1) ───  (d1)
 (a2) ─┤
 (a3) ─┘
-────────── Lineage ────────────>
-<───────── Provenance ──────────
+───────── Succession ────────>
+<──────── Provenance ─────────
+<───────── Lineage ──────────>
 
 
 Where is this asset used?
